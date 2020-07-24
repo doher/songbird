@@ -5,7 +5,7 @@ import Menu from './menu';
 import classes from './header.module.css';
 
 const Header = () => (
-  <div>
+  <div className={classes.Header}>
     <Logo />
     <Score />
     <Menu />
