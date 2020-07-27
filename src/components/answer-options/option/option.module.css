@@ -1,0 +1,26 @@
+.Option {
+  font-size: 1.8rem;
+  height: 50px;
+  line-height: 3.6rem;
+}
+
+.Option:hover {
+  background-color: #999;
+}
+
+.Dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 15px;
+  border-radius: 50%;
+  background-color: #444444;
+}
+
+.Error {
+  background-color: #d62c1a;
+}
+
+.Success {
+  background-color: #00bc8c;
+}

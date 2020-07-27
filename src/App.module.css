@@ -16,3 +16,13 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+
+.Answer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Answer>div {
+  width: 49%;
+}

@@ -1,0 +1,12 @@
+.List {
+  display: flex;
+  list-style: none;
+}
+
+.List>li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.List>li:last-child {
+  border-radius: 0 5px 5px 0;
+}

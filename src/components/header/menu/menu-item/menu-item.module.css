@@ -1,0 +1,13 @@
+.MenuItem {
+  width: 200px;
+  height: 35px;
+  padding: 10px;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 1.6rem;
+  background-color: #008966;
+}
+
+.MenuItem:hover {
+  background-color: #00bc8c;
+}
