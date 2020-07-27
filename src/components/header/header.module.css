@@ -1,3 +1,16 @@
 .Header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50px 50px;
+  padding-top: 10px;
+}
 
+.Header>ul {
+  grid-column: 1 / 3;
+  align-self: center;
+}
+
+.Header>h5 {
+  justify-self: end;
+  align-self: center;
 }

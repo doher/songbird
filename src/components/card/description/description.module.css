@@ -1,0 +1,18 @@
+.Description {
+  list-style: none;
+}
+
+.DescriptionItem {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #555;;
+}
+
+.NameInLatin {
+  font-size: 1.2rem;
+}
+
+.DescriptionText {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
