@@ -1,3 +1,7 @@
-.BirdDescription {
-  
+.DescriptionContainer {}
+
+.DescriptionList {
+  list-style: none;
 }
+
+.DescriptionText {}

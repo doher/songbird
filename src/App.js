@@ -7,6 +7,9 @@ import AnswerButton from './components/answer-button';
 import classes from './App.module.css';
 
 class App extends Component {
+  test = () => {
+    console.log('hello!');
+  }
 
   render() {
     return (
@@ -15,7 +18,9 @@ class App extends Component {
         <CurrentQuestion />
         <AnswerOptions />
         <BirdDescription />
-        <AnswerButton />
+        <AnswerButton
+          clicked={this.test}
+        />
       </div>
     );
   }
