@@ -3,19 +3,26 @@ import AudioPlayer from './audio-player';
 import classes from './description.module.css';
 
 const Description = (props) => {
+  const { name, audio, species, showed } = props;
+  const nameInLatin = species
+    ? (
+      <li
+        className={`${classes.DescriptionItem} ${classes.NameInLatin}`}
+      >
+        {species}
+      </li>)
+    : null
+
   return (
     <>
       <ul className={classes.Description}>
-        <li className={classes.DescriptionItem}>*****</li>
-        <li
-          className={`${classes.DescriptionItem} ${classes.NameInLatin}`}
-        >
-          Name in Latin
-        </li>
+        <li className={classes.DescriptionItem}>{showed ? name : '*****'}</li>
+        {nameInLatin}
         <li className={classes.DescriptionAudioItem}>
-          <AudioPlayer />
+          <AudioPlayer
+            audio={audio}
+          />
         </li>
-        <li className={classes.DescriptionText}>Some text about card</li>
       </ul>
     </>
   )

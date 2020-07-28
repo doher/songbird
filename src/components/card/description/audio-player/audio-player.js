@@ -2,8 +2,8 @@ import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
 const AudioPlayer = (props) => {
-  const { sound } = props;
-  const path = sound ? sound : null;
+  const { audio } = props;
+  const path = audio ? audio : null;
 
   return (
     <ReactAudioPlayer
