@@ -3,15 +3,21 @@ import CardImage from './card-image';
 import Description from './description';
 import classes from './card.module.css';
 
-const Card = () => {
-  const image = null;
+const Card = (props) => {
+  const { name, species, image, audio, showed } = props;
+  const img = showed ? image : null;
 
   return (
     <div className={classes.Card}>
       <CardImage
-        image={image}
+        image={img}
       />
-      <Description />
+      <Description
+        name={name}
+        audio={audio}
+        showed={showed}
+        species={species}
+      />
     </div>
   )
 };
