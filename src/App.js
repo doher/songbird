@@ -50,7 +50,7 @@ class App extends Component {
             isGuessed: true,
             totalScore: updatedTotalScore,
           };
-        } else {
+        } else if (!items[id - 1].err) {
           const updatedScore = currentScore - 1;
 
           items = this.toggleProperty(state.currentSet, id, 'err', true);
@@ -86,6 +86,8 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.currentScore);
+
     return (
       <div className={classes.App}>
         <Header
