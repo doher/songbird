@@ -72,7 +72,7 @@ class App extends Component {
   goToNextLevel = () => {
     this.setState((state) => {
       const { currentStage } = state;
-      const updatedStage = currentStage > 6 ? currentStage : currentStage + 1;
+      const updatedStage = currentStage >= 5 ? currentStage : currentStage + 1;
 
       return {
         chosenId: undefined,
@@ -80,6 +80,7 @@ class App extends Component {
         currentScore: 5,
         currentStage: updatedStage,
         isGuessed: false,
+        randomId: getRandomInt(0, 5),
       };
     });
   };
