@@ -3,12 +3,15 @@ import Option from './option';
 import classes from './answer-options.module.css';
 
 const AnswerOptions = (props) => {
-  const { options, clicked } = props;
+  const { options, onCheckAnswer } = props;
+
   const list = options.map((el) => {
     return (
       <Option
         key={el.id}
-        clicked={() => clicked(el.id)}
+        err={el.err}
+        success={el.success}
+        onCheckAnswer={() => onCheckAnswer(el.id)}
       >
         {el.name}
       </Option>

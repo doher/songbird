@@ -3,7 +3,7 @@ import Card from '../card';
 import classes from './answer-description.module.css';
 
 const AnswerDescription = (props) => {
-  const { options, isGuessed, choice } = props;
+  const { options, chosenId } = props;
 
   let card = (
     <>
@@ -11,8 +11,8 @@ const AnswerDescription = (props) => {
     </>
   );
 
-  if (choice) {
-    const selectedOption = options[choice - 1];
+  if (chosenId) {
+    const selectedOption = options[chosenId - 1];
     const {name, species, description, image, audio} = selectedOption;
 
     card = (
