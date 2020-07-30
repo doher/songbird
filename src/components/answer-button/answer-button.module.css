@@ -8,3 +8,13 @@
   background-color: #303030;
   transition: .3s;
 }
+
+.Success {
+  border: 1px solid #00bc8c;
+  background-color: #00bc8c;
+}
+
+.Success:hover {
+  border: 1px solid #20c997;
+  background-color: #20c997;
+}

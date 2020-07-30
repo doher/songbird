@@ -8,6 +8,6 @@
   background-color: #008966;
 }
 
-.MenuItem:hover {
+.SelectedItem {
   background-color: #00bc8c;
 }

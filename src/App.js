@@ -14,15 +14,16 @@ import classes from './App.module.css';
 class App extends Component {
   state = {
     chosenId: undefined,
+    currentScore: 5,
     currentSet: birdsData[0].map((el) => ({ ...el, err: false, success: false })),
     currentStage: 0,
     isGuessed: false,
     randomId: getRandomInt(0, 5),
-    score: 5,
+    totalScore: 0,
   };
 
   toggleProperty = (arr, id, propName, value) => {
-    const idx = arr.findIndex((item) => item.id === id);
+    const idx = arr.findIndex((item) => (item.id === id));
     const item = { ...arr[idx], [propName]: value };
 
     return [
@@ -34,49 +35,61 @@ class App extends Component {
 
   onCheckAnswer = (id) => {
     this.setState((state) => {
-      const { currentSet, isGuessed, randomId, score } = state;
+      const { currentSet, isGuessed, randomId, currentScore, totalScore } = state;
       let items = currentSet;
 
       if (!isGuessed) {
         if ((randomId + 1) === id) {
+          const updatedTotalScore = totalScore + currentScore;
+
           items = this.toggleProperty(state.currentSet, id, 'success', true);
 
           return {
-            currentSet: items,
             chosenId: id,
+            currentSet: items,
             isGuessed: true,
+            totalScore: updatedTotalScore,
           };
         } else {
-          const updatedScore = score - 1;
+          const updatedScore = currentScore - 1;
 
           items = this.toggleProperty(state.currentSet, id, 'err', true);
 
           return {
-            currentSet: items,
             chosenId: id,
-            score: updatedScore,
+            currentSet: items,
+            currentScore: updatedScore,
           };
         }
       }
 
       return {
-        currentSet: items,
         chosenId: id
       };
     });
   };
 
-  testRandInt(rand) {
-    console.log('rand', rand);
-  }
+  goToNextLevel = () => {
+    this.setState((state) => {
+      const { currentStage } = state;
+      const updatedStage = currentStage > 6 ? currentStage : currentStage + 1;
+
+      return {
+        chosenId: undefined,
+        currentSet: birdsData[updatedStage].map((el) => ({ ...el, err: false, success: false })),
+        currentScore: 5,
+        currentStage: updatedStage,
+        isGuessed: false,
+      };
+    });
+  };
 
   render() {
-    console.log(this.state.score);
-
     return (
       <div className={classes.App}>
         <Header
-          score={this.state.score}
+          stage={this.state.currentStage}
+          totalScore={this.state.totalScore}
         />
         <div className={classes.CurrentQuestion}>
           <CurrentQuestion
@@ -99,7 +112,7 @@ class App extends Component {
         </div>
         <AnswerButton
           isGuessed={this.state.isGuessed}
-          clicked={() => this.testRandInt(this.state.randomId)}
+          clicked={this.goToNextLevel}
         />
       </div>
     );
