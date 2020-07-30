@@ -4,12 +4,16 @@ import Score from './score';
 import Menu from './menu';
 import classes from './header.module.css';
 
-const Header = () => (
-  <div className={classes.Header}>
-    <Logo />
-    <Score />
-    <Menu />
-  </div>
-);
+const Header = (props) => {
+  const { totalScore, stage } = props;
+
+  return (
+    <div className={classes.Header}>
+      <Logo />
+      <Score score={totalScore} />
+      <Menu stage={stage} />
+    </div>
+  );
+};
 
 export default Header;
