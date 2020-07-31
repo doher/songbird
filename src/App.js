@@ -50,7 +50,7 @@ class App extends Component {
             isGuessed: true,
             totalScore: updatedTotalScore,
           };
-        } else {
+        } else if (!items[id - 1].err) {
           const updatedScore = currentScore - 1;
 
           items = this.toggleProperty(state.currentSet, id, 'err', true);
@@ -72,7 +72,7 @@ class App extends Component {
   goToNextLevel = () => {
     this.setState((state) => {
       const { currentStage } = state;
-      const updatedStage = currentStage > 6 ? currentStage : currentStage + 1;
+      const updatedStage = currentStage >= 5 ? currentStage : currentStage + 1;
 
       return {
         chosenId: undefined,
@@ -80,11 +80,14 @@ class App extends Component {
         currentScore: 5,
         currentStage: updatedStage,
         isGuessed: false,
+        randomId: getRandomInt(0, 5),
       };
     });
   };
 
   render() {
+    console.log(this.state.currentScore);
+
     return (
       <div className={classes.App}>
         <Header
