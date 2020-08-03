@@ -7,7 +7,7 @@ const AnswerDescription = (props) => {
 
   let card = (
     <>
-      <div className={classes.EmptyDescription}> Послушайте плеер.Выберите птицу из списка</div >
+      <div className={classes.EmptyDescription}>Listen the audio and try to choose correct answer.</div >
     </>
   );
 
