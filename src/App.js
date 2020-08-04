@@ -104,10 +104,11 @@ class App extends Component {
   }
 
   render() {
-    console.log('Correct answer in this stage will be: ',
-      this.state.currentSet[this.state.randomId].name);
+    console.group('=== Correct Answer: ===');
+    console.log(this.state.currentSet[this.state.randomId].name);
+    console.groupEnd();
 
-    let gamesControls = (
+    let gameBlock = (
       <>
         <div className={classes.CurrentQuestion}>
           <CurrentQuestion
@@ -137,7 +138,7 @@ class App extends Component {
 
     if ((this.state.currentStage === (rockData.length - 1))
       && (this.state.totalScore === MAX_POINTS)) {
-      gamesControls = <FinalPage clicked={this.startNewGame} />;
+      gameBlock = <FinalPage clicked={this.startNewGame} />;
     }
 
     return (
@@ -146,7 +147,7 @@ class App extends Component {
           stage={this.state.currentStage}
           totalScore={this.state.totalScore}
         />
-        {gamesControls}
+        {gameBlock}
       </div>
     );
   }
