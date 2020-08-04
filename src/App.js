@@ -6,7 +6,7 @@ import CurrentQuestion from './components/current-question';
 import AnswerOptions from './components/answer-options';
 import AnswerButton from './components/answer-button';
 
-import birdsData from './data/birds-data';
+import rockData from './data/rock-data';
 import getRandomInt from './utils/getRandomInt';
 
 import classes from './App.module.css';
@@ -15,7 +15,7 @@ class App extends Component {
   state = {
     chosenId: undefined,
     currentScore: 5,
-    currentSet: birdsData[0].map((el) => ({ ...el, err: false, success: false })),
+    currentSet: rockData[0].map((el) => ({ ...el, err: false, success: false })),
     currentStage: 0,
     isGuessed: false,
     randomId: getRandomInt(0, 5),
@@ -41,7 +41,9 @@ class App extends Component {
       if (!isGuessed) {
         if ((randomId + 1) === id) {
           const updatedTotalScore = totalScore + currentScore;
+          const correctSound = new Audio('./assets/audio/correct.mp3');
 
+          correctSound.play();
           items = this.toggleProperty(state.currentSet, id, 'success', true);
 
           return {
@@ -52,7 +54,9 @@ class App extends Component {
           };
         } else if (!items[id - 1].err) {
           const updatedScore = currentScore - 1;
+          const wrongSound = new Audio('./assets/audio/wrong.mp3');
 
+          wrongSound.play();
           items = this.toggleProperty(state.currentSet, id, 'err', true);
 
           return {
@@ -72,11 +76,11 @@ class App extends Component {
   goToNextLevel = () => {
     this.setState((state) => {
       const { currentStage } = state;
-      const updatedStage = currentStage >= 5 ? currentStage : currentStage + 1;
+      const updatedStage = currentStage >= (rockData.length - 1) ? currentStage : currentStage + 1;
 
       return {
         chosenId: undefined,
-        currentSet: birdsData[updatedStage].map((el) => ({ ...el, err: false, success: false })),
+        currentSet: rockData[updatedStage].map((el) => ({ ...el, err: false, success: false })),
         currentScore: 5,
         currentStage: updatedStage,
         isGuessed: false,
@@ -86,8 +90,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.currentScore);
-
     return (
       <div className={classes.App}>
         <Header

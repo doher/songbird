@@ -1,24 +1,16 @@
 import React from 'react';
 import MenuItem from './menu-item';
+import groups from '../../../data/groups';
 import classes from './menu.module.css';
-
-const items = [
-  'Разминка',
-  'Воробьиные',
-  'Лесные птицы',
-  'Певчие птицы',
-  'Хищные птицы',
-  'Морские птицы',
-];
 
 const Menu = (props) => {
   const { stage } = props;
-  const menuItems = items.map((item, index) => {
+  const menuItems = groups.map((group, index) => {
     if (stage === index) {
-      return <MenuItem key={index} selected>{item}</MenuItem>;
+      return <MenuItem key={index} selected>{group}</MenuItem>;
     }
 
-    return <MenuItem key={index}>{item}</MenuItem>;
+    return <MenuItem key={index}>{group}</MenuItem>;
   });
 
   return (

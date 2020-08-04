@@ -4,7 +4,7 @@ import Description from './description';
 import classes from './card.module.css';
 
 const Card = (props) => {
-  const { name, species, image, audio, showed } = props;
+  const { name, genres, image, audio, showed } = props;
   const img = showed ? image : null;
 
   return (
@@ -16,7 +16,7 @@ const Card = (props) => {
         name={name}
         audio={audio}
         showed={showed}
-        species={species}
+        genres={genres}
       />
     </div>
   )

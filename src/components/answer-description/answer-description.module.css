@@ -10,8 +10,11 @@
 .DescriptionText {
   margin-top: 20px;
   font-size: 1.6rem;
+  line-height: 2.5rem;
+  text-align: justify;
 }
 
 .EmptyDescription {
   font-size: 1.6rem;
+  line-height: 2.5rem;
 }

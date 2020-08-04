@@ -3,13 +3,13 @@ import AudioPlayer from './audio-player';
 import classes from './description.module.css';
 
 const Description = (props) => {
-  const { name, audio, species, showed } = props;
-  const nameInLatin = species
+  const { name, audio, genres, showed } = props;
+  const facts = genres
     ? (
       <li
         className={`${classes.DescriptionItem} ${classes.NameInLatin}`}
       >
-        {species}
+        {genres}
       </li>)
     : null
 
@@ -17,7 +17,7 @@ const Description = (props) => {
     <>
       <ul className={classes.Description}>
         <li className={classes.DescriptionItem}>{showed ? name : '*****'}</li>
-        {nameInLatin}
+        {genres}
         <li className={classes.DescriptionAudioItem}>
           <AudioPlayer
             audio={audio}
