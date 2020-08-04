@@ -8,4 +8,6 @@ const groups = [
   'British Indie Rock',
 ];
 
-export default groups;
+const MAX_POINTS = 35;
+
+export { groups, MAX_POINTS };

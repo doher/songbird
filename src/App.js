@@ -5,9 +5,11 @@ import AnswerDescription from './components/answer-description';
 import CurrentQuestion from './components/current-question';
 import AnswerOptions from './components/answer-options';
 import AnswerButton from './components/answer-button';
+import FinalPage from './components/final-page';
 
 import rockData from './data/rock-data';
 import getRandomInt from './utils/getRandomInt';
+import { MAX_POINTS } from './data/game-data';
 
 import classes from './App.module.css';
 
@@ -89,13 +91,24 @@ class App extends Component {
     });
   };
 
+  startNewGame = () => {
+    this.setState({
+      chosenId: undefined,
+      currentScore: 5,
+      currentSet: rockData[0].map((el) => ({ ...el, err: false, success: false })),
+      currentStage: 0,
+      isGuessed: false,
+      randomId: getRandomInt(0, 5),
+      totalScore: 0,
+    });
+  }
+
   render() {
-    return (
-      <div className={classes.App}>
-        <Header
-          stage={this.state.currentStage}
-          totalScore={this.state.totalScore}
-        />
+    console.log('Correct answer in this stage will be: ',
+      this.state.currentSet[this.state.randomId].name);
+
+    let gamesControls = (
+      <>
         <div className={classes.CurrentQuestion}>
           <CurrentQuestion
             options={this.state.currentSet}
@@ -119,6 +132,21 @@ class App extends Component {
           isGuessed={this.state.isGuessed}
           clicked={this.goToNextLevel}
         />
+      </>
+    );
+
+    if ((this.state.currentStage === (rockData.length - 1))
+      && (this.state.totalScore === MAX_POINTS)) {
+      gamesControls = <FinalPage clicked={this.startNewGame} />;
+    }
+
+    return (
+      <div className={classes.App}>
+        <Header
+          stage={this.state.currentStage}
+          totalScore={this.state.totalScore}
+        />
+        {gamesControls}
       </div>
     );
   }

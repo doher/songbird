@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from './menu-item';
-import groups from '../../../data/groups';
+import { groups } from '../../../data/game-data';
 import classes from './menu.module.css';
 
 const Menu = (props) => {
