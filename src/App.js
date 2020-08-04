@@ -41,7 +41,9 @@ class App extends Component {
       if (!isGuessed) {
         if ((randomId + 1) === id) {
           const updatedTotalScore = totalScore + currentScore;
+          const correctSound = new Audio('./assets/audio/correct.mp3');
 
+          correctSound.play();
           items = this.toggleProperty(state.currentSet, id, 'success', true);
 
           return {
@@ -52,7 +54,9 @@ class App extends Component {
           };
         } else if (!items[id - 1].err) {
           const updatedScore = currentScore - 1;
+          const wrongSound = new Audio('./assets/audio/wrong.mp3');
 
+          wrongSound.play();
           items = this.toggleProperty(state.currentSet, id, 'err', true);
 
           return {
