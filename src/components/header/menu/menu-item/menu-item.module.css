@@ -1,13 +1,16 @@
 .MenuItem {
-  width: 200px;
+  width: 100%;
   height: 50px;
   padding: 10px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
   text-align: center;
   line-height: 3rem;
-  background-color: #008966;
+  color: #fff;
+  background-color: #f89406;
+  border: solid 1px #aa752a;
 }
 
 .SelectedItem {
-  background-color: #00bc8c;
+  background-color: #8d590f;
 }

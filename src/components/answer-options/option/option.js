@@ -15,7 +15,11 @@ const Option = (props) => {
   }
 
   return (
-    <li className={classes.Option} onClick={onCheckAnswer}>
+    // <li className={classes.Option} onClick={onCheckAnswer}>
+    <li
+      className={`list-group-item d-flex align-items-center ${classes.Option}`}
+      onClick={onCheckAnswer}
+    >
       <span className={classNames}></span>
       {children}
     </li>

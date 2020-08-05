@@ -119,7 +119,7 @@ const rockData = [
     {
       id: 3,
       name: 'Patti Smith',
-      song: '',
+      song: 'Land/Horses/Land Of A Thousand Dances/De La Mer',
       description: 'Patricia Lee Smith (born December 30, 1946) is an American singer-songwriter, musician, author, and poet who became an influential component of the New York City punk rock movement with her 1975 debut album Horses. Called the "punk poet laureate", Smith fused rock and poetry in her work. Her most widely known song is "Because the Night", which was co-written with Bruce Springsteen.',
       image: './assets/image/3/patti-smith.jpg',
       audio: './assets/audio/3/patti-smith-land-horses-land-of-a-thousand-dances.mp3',
@@ -127,7 +127,7 @@ const rockData = [
     {
       id: 4,
       name: 'The Clash',
-      song: 'Land/Horses/Land Of A Thousand Dances/De La Mer',
+      song: '(White Man) In Hammersmith Palais',
       description: 'The Clash were an English rock band formed in London in 1976 as a key player in the original wave of British punk rock. They also contributed to the post-punk and new wave movements that emerged in the wake of punk and employed elements of a variety of genres including reggae, dub, funk, ska, and rockabilly. For most of their recording career, the Clash consisted of lead vocalist and rhythm guitarist Joe Strummer, lead guitarist and vocalist Mick Jones, bassist Paul Simonon, and drummer Nicky "Topper" Headon.',
       image: './assets/image/3/the-clash.jpg',
       audio: './assets/audio/3/the-clash-white-man-in-hammersmith-palais.mp3',

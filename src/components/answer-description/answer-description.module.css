@@ -1,9 +1,9 @@
 .AnswerDescription {
   margin-top: 20px;
   align-self: stretch;
-  background-color: #303030;
-  border: 1px solid #444;
-  border-radius: 5px;
+  background-color: #32383e;
+  border: 1px solid rgba(0,0,0,0.6);
+  border-radius: 3px;
   padding: 15px;
 }
 
@@ -15,6 +15,6 @@
 }
 
 .EmptyDescription {
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 2.5rem;
 }

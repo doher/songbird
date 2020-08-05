@@ -7,7 +7,7 @@ const Description = (props) => {
   const facts = song
     ? (
       <li
-        className={`${classes.DescriptionItem} ${classes.NameInLatin}`}
+        className={`${classes.DescriptionItem} ${classes.SongName}`}
       >
         {song}
       </li>)

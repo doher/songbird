@@ -19,7 +19,7 @@ const AnswerOptions = (props) => {
   });
 
   return (
-    <ul className={classes.List}>
+    <ul className={`list-group ${classes.List}`}>
       {list}
     </ul>
   );
