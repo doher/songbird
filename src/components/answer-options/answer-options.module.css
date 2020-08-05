@@ -3,3 +3,9 @@
   margin-top: 20px;
   width: 49%;
 }
+
+@media screen and (max-width: 1170px) {
+  .List {
+    width: 100%;
+  }
+}

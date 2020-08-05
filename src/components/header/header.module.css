@@ -1,11 +1,14 @@
 .Header {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 80% 20%;
   grid-template-rows: 70px 50px;
   padding-top: 20px;
 }
 
 .Header>ul {
+  display: grid;
+  grid-template-areas:
+    "item1 item2 item3 item4 item5 item6 item7";
   grid-column: 1 / 3;
   align-self: center;
 }
@@ -13,4 +16,71 @@
 .Header>h5 {
   justify-self: end;
   align-self: center;
+}
+
+.Header>ul>li:nth-child(1) {
+  grid-area: item1;
+}
+
+.Header>ul>li:nth-child(2) {
+  grid-area: item2;
+}
+
+.Header>ul>li:nth-child(3) {
+  grid-area: item3;
+}
+
+.Header>ul>li:nth-child(4) {
+  grid-area: item4;
+}
+
+.Header>ul>li:nth-child(5) {
+  grid-area: item5;
+}
+
+.Header>ul>li:nth-child(6) {
+  grid-area: item6;
+}
+
+.Header>ul>li:nth-child(7) {
+  grid-area: item7;
+}
+
+@media screen and (max-width: 950px) {
+  .Header {
+    grid-template-rows: 70px 50px 50px 50px;
+  }
+
+  .Header>ul {
+    grid-template-areas:
+      "item1 item2 item3"
+      "item4 item5 item6"
+      "item7 item7 item7";
+    grid-row: 2 / 6;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .Header {
+    grid-template-rows: 70px 30px 50px 50px 50px 50px 50px 50px 50px;
+  }
+
+  .Header>h1, .Header>h5 {
+    grid-column: 1 / 3;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .Header>ul {
+    grid-template-areas:
+      "item1"
+      "item2"
+      "item3"
+      "item4"
+      "item5"
+      "item6"
+      "item7";
+    grid-row: 6 / 6;
+  }
 }
