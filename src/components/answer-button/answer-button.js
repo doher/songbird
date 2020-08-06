@@ -3,14 +3,15 @@ import classes from './answer-button.module.css';
 
 const AnswerButton = (props) => {
   const { clicked, isGuessed } = props;
-  let classNames = `${classes.Button}`;
+  let classNames = `btn btn-primary disabled ${classes.Button}`;
 
   if (isGuessed) {
-    classNames += ` ${classes.Success}`;
+    classNames = `btn btn-warning ${classes.Button}`;
   }
 
   return (
     <button
+      type="button"
       className={classNames}
       onClick={clicked}
       disabled={!isGuessed}

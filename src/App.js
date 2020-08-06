@@ -5,6 +5,7 @@ import AnswerDescription from './components/answer-description';
 import CurrentQuestion from './components/current-question';
 import AnswerOptions from './components/answer-options';
 import AnswerButton from './components/answer-button';
+import FinalPage from './components/final-page';
 
 import rockData from './data/rock-data';
 import getRandomInt from './utils/getRandomInt';
@@ -89,36 +90,76 @@ class App extends Component {
     });
   };
 
+  startNewGame = () => {
+    this.setState({
+      chosenId: undefined,
+      currentScore: 5,
+      currentSet: rockData[0].map((el) => ({ ...el, err: false, success: false })),
+      currentStage: 0,
+      isGuessed: false,
+      randomId: getRandomInt(0, 5),
+      totalScore: 0,
+    });
+  }
+
   render() {
-    return (
-      <div className={classes.App}>
-        <Header
-          stage={this.state.currentStage}
-          totalScore={this.state.totalScore}
-        />
+    const {
+      currentSet,
+      randomId,
+      isGuessed,
+      chosenId,
+      currentStage,
+      totalScore,
+    } = this.state;
+
+    console.group('=== Correct Answer: ===');
+    console.log(currentSet[randomId].name);
+    console.groupEnd();
+
+    let gameBlock = (
+      <>
         <div className={classes.CurrentQuestion}>
           <CurrentQuestion
-            options={this.state.currentSet}
-            isGuessed={this.state.isGuessed}
-            randId={this.state.randomId}
+            options={currentSet}
+            isGuessed={isGuessed}
+            randId={randomId}
           />
         </div>
         <div className={classes.Answer}>
           <AnswerOptions
-            options={this.state.currentSet}
+            options={currentSet}
+            isGuessed={isGuessed}
             onCheckAnswer={this.onCheckAnswer}
-            isGuessed={this.state.isGuessed}
           />
           <AnswerDescription
-            options={this.state.currentSet}
-            isGuessed={this.state.isGuessed}
-            chosenId={this.state.chosenId}
+            options={currentSet}
+            isGuessed={isGuessed}
+            chosenId={chosenId}
           />
         </div>
         <AnswerButton
-          isGuessed={this.state.isGuessed}
+          isGuessed={isGuessed}
           clicked={this.goToNextLevel}
         />
+      </>
+    );
+
+    if (isGuessed && (currentStage === (rockData.length - 1))) {
+      gameBlock = (
+        <FinalPage
+          score={totalScore}
+          clicked={this.startNewGame}
+        />
+      );
+    }
+
+    return (
+      <div className={classes.App}>
+        <Header
+          stage={currentStage}
+          totalScore={totalScore}
+        />
+        {gameBlock}
       </div>
     );
   }

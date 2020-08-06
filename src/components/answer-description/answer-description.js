@@ -13,13 +13,13 @@ const AnswerDescription = (props) => {
 
   if (chosenId) {
     const selectedOption = options[chosenId - 1];
-    const {name, genres, description, image, audio} = selectedOption;
+    const {name, song, description, image, audio} = selectedOption;
 
     card = (
       <>
         <Card
           name={name}
-          genres={genres}
+          song={song}
           image={image}
           audio={audio}
           showed

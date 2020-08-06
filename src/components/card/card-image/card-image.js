@@ -10,7 +10,7 @@ const CardImage = (props) => {
     <img
       className={classes.Image}
       src={currentImage}
-      alt="image"
+      alt="group"
     />
   )
 };

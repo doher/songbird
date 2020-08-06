@@ -1,4 +1,13 @@
-.Logo {
-    width: 200px;
-    height: 55px;
+.Logo>* {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 5rem;
+  line-height: 5rem;
+}
+
+.FistPart {
+  color: rgb(248, 148, 6);
+}
+
+.SecondPart {
+  color: rgb(233, 236, 239);
 }
