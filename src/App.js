@@ -9,7 +9,6 @@ import FinalPage from './components/final-page';
 
 import rockData from './data/rock-data';
 import getRandomInt from './utils/getRandomInt';
-import { MAX_POINTS } from './data/game-data';
 
 import classes from './App.module.css';
 
@@ -104,48 +103,61 @@ class App extends Component {
   }
 
   render() {
+    const {
+      currentSet,
+      randomId,
+      isGuessed,
+      chosenId,
+      currentStage,
+      totalScore,
+    } = this.state;
+
     console.group('=== Correct Answer: ===');
-    console.log(this.state.currentSet[this.state.randomId].name);
+    console.log(currentSet[randomId].name);
     console.groupEnd();
 
     let gameBlock = (
       <>
         <div className={classes.CurrentQuestion}>
           <CurrentQuestion
-            options={this.state.currentSet}
-            isGuessed={this.state.isGuessed}
-            randId={this.state.randomId}
+            options={currentSet}
+            isGuessed={isGuessed}
+            randId={randomId}
           />
         </div>
         <div className={classes.Answer}>
           <AnswerOptions
-            options={this.state.currentSet}
+            options={currentSet}
+            isGuessed={isGuessed}
             onCheckAnswer={this.onCheckAnswer}
-            isGuessed={this.state.isGuessed}
           />
           <AnswerDescription
-            options={this.state.currentSet}
-            isGuessed={this.state.isGuessed}
-            chosenId={this.state.chosenId}
+            options={currentSet}
+            isGuessed={isGuessed}
+            chosenId={chosenId}
           />
         </div>
         <AnswerButton
-          isGuessed={this.state.isGuessed}
+          isGuessed={isGuessed}
           clicked={this.goToNextLevel}
         />
       </>
     );
 
-    if ((this.state.currentStage === (rockData.length - 1))
-      && (this.state.totalScore === MAX_POINTS)) {
-      gameBlock = <FinalPage clicked={this.startNewGame} />;
+    if (isGuessed && (currentStage === (rockData.length - 1))) {
+      gameBlock = (
+        <FinalPage
+          score={totalScore}
+          clicked={this.startNewGame}
+        />
+      );
     }
 
     return (
       <div className={classes.App}>
         <Header
-          stage={this.state.currentStage}
-          totalScore={this.state.totalScore}
+          stage={currentStage}
+          totalScore={totalScore}
         />
         {gameBlock}
       </div>

@@ -1,0 +1,27 @@
+.Congratulations {
+  text-align: center;
+  font-weight: 900;
+  font-size: 5rem;
+  opacity: 0.8;
+  background-color: rgba(0,0,0,0.6);;
+  border-radius: 5px;
+}
+
+.NewGameButton {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 50px;
+  margin: 20px auto;
+  font-size: 2rem;
+  border-radius: 5px;
+  border: 1px solid rgb(248, 148, 6);
+  background-color: rgb(248, 148, 6);
+  transition: .3s;
+}
+
+.NewGameButton:hover {
+  border: 1px solid #8d590f;
+  background-color: #8d590f;
+}
