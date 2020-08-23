@@ -1,0 +1,21 @@
+.Card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.Card>ul{
+  margin-left: 60px;
+  width: 100%;
+}
+
+@media screen and (max-width: 570px) {
+  .Card {
+    flex-direction: column;
+  }
+
+  .Card>ul{
+    margin: 10px 0 0;
+    width: 100%;
+  }
+}

@@ -7,12 +7,34 @@
   color: #ffffff;
 }
 
-body {
-  background-color: #282c34;
-  min-height: 100vh;
-}
-
 .App {
   max-width: 1200px;
+  padding: 0 40px;
   margin: auto;
+}
+
+.Answer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Answer>div {
+  width: 49%;
+}
+
+@media screen and (max-width: 1170px) {
+  .Answer {
+    flex-direction: column;
+  }
+
+  .Answer>div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .App {
+    padding: 0 10px;
+  }
 }

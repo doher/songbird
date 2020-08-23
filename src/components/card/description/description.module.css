@@ -1,0 +1,25 @@
+.Description {
+  list-style: none;
+}
+
+.DescriptionItem {
+  font-size: 3.2rem;
+  padding: 0 5px;
+}
+
+.SongName {
+  font-size: 1.6rem;
+  border-top: 1px solid rgba(0,0,0,0.6);
+  padding: 5px;
+}
+
+.DescriptionText {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1170px) {
+  .DescriptionItem {
+    font-size: 2.3rem;
+  }
+}
